@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Surprise for Abby</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #003366, #0066cc);
+            color: white;
+            text-align: center;
+            overflow: hidden;
+        }
+        h1 {
+            margin-top: 50px;
+            font-size: 3em;
+            text-shadow: 2px 2px 5px #000;
+        }
+        .message {
+            font-size: 1.5em;
+            margin: 20px;
+            padding: 10px;
+        }
+        .button-container {
+            margin-top: 30px;
+        }
+        .button {
+            background: #ff6666;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .button:hover {
+            transform: scale(1.1);
+        }
+        .animation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 80%;
+            max-width: 500px;
+            border-radius: 15px;
+            transition: transform 0.5s ease-in-out, border-radius 0.5s;
+        }
+        .show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+        .snowflakes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        .snowflake {
+            position: absolute;
+            top: -10%;
+            width: 10px;
+            height: 10px;
+            background: white;
+            opacity: 0.8;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from {
+                transform: translateY(-10%);
+            }
+            to {
+                transform: translateY(110vh);
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Merry Christmas, Abby! You are my bro na bro and sis na sis talaga!</h1>
+    <p class="message">Wishing you warmth, love, and joy on this special day. You are never alone in spirit. ❤️</p>
+
+    <p class="message">My Message 1: Christmas is a season of love and giving, and you are the perfect reminder of why this season is so special!! 🎁</p>
+    <p class="message">My Message 2!: Abby we enjoyed the adventure yesterday 12/24/2024!! I hope that we can enjoy christmas together!!! 🎄</p>
+    <p class="message">My Message 3!!: Abby, you are cherished and loved more than words can express. Abby don't ever think na you are alone in christmas cuz u have us! especially me! ✨</p>
+    <p class="message">My Message 4!!: Abby I programmed this for 3 hours just to try and lighten you up!!!! I WISH NA DA BEST UNG XMAS DAY MOOO!!!!! ✨</p>
+
+    <div class="button-container">
+        <button class="button" onclick="showAnimation('slide1')">Show Harry Face</button>
+        <button class="button" onclick="showAnimation('slide2')">Show Progress Picture</button>
+    </div>
+
+    <img src="Harry_Face.jpg" alt="Harry's Face" id="slide1" class="animation">
+    <img src="Progress.jpg" alt="Progress Picture" id="slide2" class="animation">
+
+    <div class="snowflakes" id="snowflakes"></div>
+
+    <script>
+        // Show animation when button is clicked
+        function showAnimation(id) {
+            document.querySelectorAll('.animation').forEach(el => el.classList.remove('show'));
+            const animationElement = document.getElementById(id);
+            animationElement.classList.add('show');
+            setTimeout(() => {
+                animationElement.classList.remove('show');
+            }, 3000); // Hide after 3 seconds
+        }
+
+        // Create snowflakes
+        function createSnowflakes() {
+            const snowflakes = document.getElementById('snowflakes');
+            for (let i = 0; i < 50; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.classList.add('snowflake');
+                snowflake.style.left = `${Math.random() * 100}%`;
+                snowflake.style.animationDuration = `${3 + Math.random() * 5}s`;
+                snowflake.style.animationDelay = `${Math.random() * 3}s`;
+                snowflakes.appendChild(snowflake);
+            }
+        }
+
+        createSnowflakes();
+    </script>
+</body>
+</html>
